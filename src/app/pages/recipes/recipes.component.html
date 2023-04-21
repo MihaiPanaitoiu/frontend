@@ -1,0 +1,15 @@
+<ion-content>
+  <ion-list *ngFor="let recipe of dataSource">
+    <ion-card (click)="viewRecipe(recipe.id)">
+      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+      <ion-card-header>
+        <ion-card-title>{{recipe.title}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{recipe.description}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

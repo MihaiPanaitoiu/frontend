@@ -1,0 +1,56 @@
+<ion-content>
+  <ion-card *ngIf="loaded">
+    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+
+    <ion-card-header>
+      <ion-card-title>{{dataSource.title}}</ion-card-title>
+      <ion-card-subtitle>{{dataSource.author.username}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{dataSource.description}}
+        </ion-item>
+        <ion-item>
+          {{dataSource.cookingSteps}}
+        </ion-item>
+        <ion-item *ngFor="let ingredient of dataSource.ingredients">
+          {{ingredient.name}} {{ingredient.amount}} {{ingredient.unit}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="loaded">
+    <ion-card-header>
+      <ion-card-title>Reviews</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let review of dataSource.reviews">
+          {{review.rating}} {{review.body}} {{review.author.username}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-list *ngIf="!loaded">
+    <ion-list-header>
+      <ion-skeleton-text [animated]="true" style="width: 100px"></ion-skeleton-text>
+    </ion-list-header>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

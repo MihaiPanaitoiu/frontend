@@ -1,15 +1,54 @@
+<ion-toolbar>
+  <ion-title>Recipes</ion-title>
+</ion-toolbar>
 <ion-content>
-  <ion-list *ngFor="let recipe of dataSource">
-    <ion-card (click)="viewRecipe(recipe.id)">
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-      <ion-card-header>
-        <ion-card-title>{{recipe.title}}</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        {{recipe.description}}
-      </ion-card-content>
-    </ion-card>
+  <ion-list *ngIf="!loaded">
+    <ion-list-header>
+      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+    </ion-list-header>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
   </ion-list>
+
+ <ng-container *ngIf="loaded">
+   <ion-list *ngFor="let recipe of dataSource">
+     <ion-card (click)="viewRecipe(recipe.id)">
+       <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+       <ion-card-header>
+         <ion-card-title>{{recipe.title}}</ion-card-title>
+       </ion-card-header>
+
+       <ion-card-content>
+         {{recipe.description}}
+       </ion-card-content>
+     </ion-card>
+   </ion-list>
+ </ng-container>
+  <ng-container>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end" [edge]="false">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button>
+          <ion-icon name="pizza-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+  </ng-container>
 
 </ion-content>

@@ -6,7 +6,7 @@ import {environment} from "../../../environments/environment";
 
 export abstract class AbstractDataApi {
   abstract get(url: string, request: any): Observable<any>;
-  abstract post(url: string, request: any): Observable<any>;
+  abstract post<T>(url: string, request: any): Observable<any>;
   abstract put(url: string, request: any): Observable<any>;
   abstract delete(url: string, request: any): Observable<any>;
 }
@@ -21,8 +21,8 @@ export class DataApi extends AbstractDataApi {
   get(url: string, request: any): Observable<any> {
     return this.http.get(`${environment.baseApiUrl}/${url}`, request);
   }
-  post(url: string, request: any): Observable<any> {
-    return this.http.post(`${environment.baseApiUrl}/${url}`, request);
+  post<T>(url: string, request: any): Observable<any> {
+    return this.http.post<T>(`${environment.baseApiUrl}/${url}`, request, {observe: 'response'});
   }
   put(url: string, request: any): Observable<any> {
     return this.http.put(`${environment.baseApiUrl}/${url}`, request);

@@ -16,6 +16,7 @@ export class RecipesComponent implements OnInit {
   ) { }
 
   public dataSource: IRecipe[] = [];
+  public loaded: boolean = false;
   ngOnInit(): void {
     this.updateDataSource();
   }
@@ -35,6 +36,7 @@ export class RecipesComponent implements OnInit {
         __v: recipe.__v,
       })));
       console.log(this.dataSource);
+      this.loaded=true;
     })
   }
 

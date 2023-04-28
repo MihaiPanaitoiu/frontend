@@ -18,6 +18,10 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@capacitor/android": "^4.7.3",
+    "@capacitor/cli": "^4.7.3",
+    "@capacitor/ios": "^4.7.3",
+    "@capacitor/preferences": "^4.0.2",
     "@ionic/angular": "^7.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -27,6 +31,7 @@
     "@angular-devkit/build-angular": "^14.2.2",
     "@angular/cli": "~14.2.2",
     "@angular/compiler-cli": "^14.2.0",
+    "@ionic/angular-toolkit": "latest",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
@@ -34,7 +39,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.7.2",
-    "@ionic/angular-toolkit": "latest"
+    "typescript": "~4.7.2"
   }
 }

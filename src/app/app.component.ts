@@ -34,11 +34,11 @@ export class AppComponent {
     }
   ];
 
-  canGoBack() {
-    if (this.router.url.split('/').length >= 3) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // canGoBack() {
+  //   if (this.router.url.split('/').length >= 3) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

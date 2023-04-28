@@ -14,6 +14,9 @@ import {AbstractDataApi, DataApi} from "./@core/Data-Api/data-api";
 import {AbstractRecipesService, RecipesService} from "./@core/services/recipes.service";
 import {HttpClientModule} from "@angular/common/http";
 import { ViewRecipeComponent } from './pages/recipes/view-recipe/view-recipe.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {AbstractAuthService, AuthService} from "./@core/services/auth.service";
+import {AbstractAccountService, AccountService} from "./@core/services/account.service";
 
 @NgModule({
   declarations: [
@@ -30,11 +33,14 @@ import { ViewRecipeComponent } from './pages/recipes/view-recipe/view-recipe.com
     AppRoutingModule,
     PagesRoutingModule,
     HttpClientModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [
     {provide: AbstractDataApi, useClass: DataApi},
-    {provide: AbstractRecipesService, useClass: RecipesService}
+    {provide: AbstractRecipesService, useClass: RecipesService},
+    {provide: AbstractAuthService, useClass: AuthService},
+    {provide: AbstractAccountService, useClass: AccountService},
   ],
   bootstrap: [AppComponent]
 })
